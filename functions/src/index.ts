@@ -10,12 +10,9 @@ admin.initializeApp({
     databaseURL: "" // database URL found from firebase console project setting
 });
 
-
-
 export const updateUserPhoneNumber = functions.https.onCall(
     async (request, context) => {
       try {
-        console.log('request............', request);
         const userUpdate = await admin.auth().updateUser(request.uid, {
           phoneNumber: request.phoneNumber
         });
